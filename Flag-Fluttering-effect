@@ -1,0 +1,164 @@
+```Html
+  <div class="banner">
+      <span></span>
+      <span>H</span>
+      <span>A</span>
+      <span>P</span>
+      <span>P</span>
+      <span>Y</span>
+      <span> </span>
+      <span>D</span>
+      <span>I</span>
+      <span>W</span>
+      <span>A</span>
+      <span>L</span>
+      <span>I</span>
+      <span></span>
+    </div>
+
+```css
+.banner {
+  display: inline-block;
+  background: transparent;
+  padding: 10px;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 18px;
+  border-radius: 4px;
+  height: fit-content;
+  width: fit-content;
+  margin-top: 300px;
+  display: flex;
+  gap: 0;
+  animation: flutter 1s ease-in-out infinite;
+}
+
+.banner span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 5px;
+  width: fit-content;
+  height: 35px;
+  overflow: hidden;
+  animation: flutter 1s ease-in-out infinite;
+}
+
+.banner span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  background: white;
+}
+
+.banner span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background: white;
+}
+
+/* Delay each character to create ripple flutter effect */
+.banner span:nth-child(1) {
+  animation-delay: 0s;
+}
+.banner span:nth-child(2) {
+  animation-delay: 0.05s;
+}
+.banner span:nth-child(3) {
+  animation-delay: 0.1s;
+}
+.banner span:nth-child(4) {
+  animation-delay: 0.15s;
+}
+.banner span:nth-child(5) {
+  animation-delay: 0.2s;
+}
+.banner span:nth-child(6) {
+  animation-delay: 0.25s;
+}
+.banner span:nth-child(7) {
+  animation-delay: 0.3s;
+}
+.banner span:nth-child(8) {
+  animation-delay: 0.35s;
+}
+.banner span:nth-child(9) {
+  animation-delay: 0.4s;
+}
+.banner span:nth-child(10) {
+  animation-delay: 0.45s;
+}
+.banner span:nth-child(11) {
+  animation-delay: 0.5s;
+}
+.banner span:nth-child(12) {
+  animation-delay: 0.55s;
+}
+.banner span:nth-child(13) {
+  animation-delay: 0.6s;
+}
+.banner span:nth-child(14) {
+  animation-delay: 0.65s;
+}
+
+// Use this one for up down flag waving effect
+
+ @keyframes flutter {
+  0% {
+    transform: skewY(0deg) translateY(0px);
+  }
+  25% {
+    transform: skewY(2deg) translateY(-3px);
+  }
+  50% {
+    transform: skewY(0deg) translateY(3px);
+  }
+  75% {
+    transform: skewY(-2deg) translateY(-3px);
+  }
+  100% {
+    transform: skewY(0deg) translateY(0px);
+  }
+} 
+
+// Use this one for bach and top wave flag waving effect
+
+ @keyframes flutter {
+  0% {
+    transform: skewY(0deg) translateX(0);
+  }
+  25% {
+    transform: skewY(2deg) translateX(-2px);
+  }
+  50% {
+    transform: skewY(0deg) translateX(2px);
+  }
+  75% {
+    transform: skewY(-2deg) translateX(-2px);
+  }
+  100% {
+    transform: skewY(0deg) translateX(0);
+  }
+} 
+
+
+// Use this one for both back and top and up and down flag waving effect
+@keyframes flutter {
+  0% {
+    transform: skewY(0deg) translate(0, 0px);
+  }
+  25% {
+    transform: skewY(2deg) translate(-2px, -3px);
+  }
+  50% {
+    transform: skewY(0deg) translate(2px, 3px);
+  }
+  75% {
+    transform: skewY(-2deg) translate(-2px, -3px);
+  }
+  100% {
+    transform: skewY(0deg) translate(0px, 0px);
+  }
+}
