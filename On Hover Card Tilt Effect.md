@@ -7,7 +7,7 @@
     <button>Learn More</button>
   </div>
 </div>
-
+```
 ```css
 .tilt-card {
   width: 300px;
@@ -33,7 +33,7 @@
 .tilt-card:hover {
   cursor: pointer;
 }
-
+```
 
 ```js
 const card = document.querySelector('.tilt-card');
@@ -55,3 +55,4 @@ card.addEventListener('mousemove', (e) => {
 card.addEventListener('mouseleave', () => {
   card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
 });
+```
