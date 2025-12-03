@@ -4,8 +4,8 @@ ON SCROLL CARDS SECTION SIDE LINE KEEP GROWING
 const section = document.querySelector('.scroll-cards');
 const sideline = document.querySelector('.audit-sideline-2');
 
-const startOffset = 150;
-const maxPercent = 0.85;
+const startOffset = 150; // offset of the section after how many px you want it to start
+const maxPercent = 0.85; // 85% max height you can edit it (1 = 100%height)
 
 function updateSideLine() {
     const rect = section.getBoundingClientRect();
