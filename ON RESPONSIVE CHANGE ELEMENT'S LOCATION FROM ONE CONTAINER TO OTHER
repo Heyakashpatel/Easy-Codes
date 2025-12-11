@@ -1,0 +1,17 @@
+ON RESPONSIVE RELOCATE / CHANGE ELEMENT'S LOCATION FROM ONE CONTAINER TO OTHER 
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.querySelector(".move-btn");
+  const target = document.querySelector(".award-sec .kt-inside-inner-col");
+  const original = btn.parentElement;
+
+  function relocate() {
+    if (window.innerWidth <= 768) target.appendChild(btn);
+    else original.appendChild(btn);
+  }
+
+  relocate();
+  window.addEventListener("resize", relocate);
+});
+</script>
