@@ -1,0 +1,133 @@
+HTML >>>
+
+<section class="scroll-section">
+  <div class="sticky">
+
+    <div class="left">
+      <h2 id="title">Image optimization</h2>
+      <p id="desc">Improve loading speeds while keeping quality high.</p>
+    </div>
+
+    <div class="right">
+      <img id="image" src="https://picsum.photos/id/1018/800/500" />
+    </div>
+
+  </div>
+</section>
+
+
+CSS >>>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+  }
+
+  .scroll-section {
+    height: 300vh;
+    position: relative;
+  }
+
+  .sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+    transition: background 0.6s ease;
+  }
+
+  .left {
+    width: 40%;
+    z-index: 2;
+  }
+
+  .left h2 {
+    font-size: 48px;
+    margin: 0 0 20px;
+    transition: all 0.5s ease;
+  }
+
+  .left p {
+    font-size: 18px;
+    opacity: 0.8;
+    transition: all 0.5s ease;
+  }
+
+  .right {
+    width: 50%;
+    z-index: 2;
+  }
+
+  .right img {
+    width: 100%;
+    border-radius: 20px;
+    transition: all 0.6s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+
+  /* dark overlay effect */
+  .sticky::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+  }
+</style>
+
+
+JAVASCRIPT >>>
+
+<script>
+const section = document.querySelector(".scroll-section");
+const sticky = document.querySelector(".sticky");
+
+const title = document.getElementById("title");
+const desc = document.getElementById("desc");
+const image = document.getElementById("image");
+
+const steps = [
+  {
+    bg: "#0d0d0d",
+    title: "Image optimization",
+    desc: "Improve loading speeds while keeping your images sharp.",
+    img: "https://picsum.photos/id/1018/800/500"
+  },
+  {
+    bg: "#1a1a2e",
+    title: "Accessibility",
+    desc: "Make your content usable for everyone with better design.",
+    img: "https://picsum.photos/id/1015/800/500"
+  },
+  {
+    bg: "#16213e",
+    title: "Performance",
+    desc: "Boost website speed and overall experience.",
+    img: "https://picsum.photos/id/1019/800/500"
+  }
+];
+
+window.addEventListener("scroll", () => {
+  const rect = section.getBoundingClientRect();
+  const scrollProgress = -rect.top / (section.offsetHeight - window.innerHeight);
+
+  const stepIndex = Math.min(
+    steps.length - 1,
+    Math.floor(scrollProgress * steps.length)
+  );
+
+  const step = steps[stepIndex];
+
+  sticky.style.background = step.bg;
+  title.textContent = step.title;
+  desc.textContent = step.desc;
+  image.src = step.img;
+});
+</script>
+
