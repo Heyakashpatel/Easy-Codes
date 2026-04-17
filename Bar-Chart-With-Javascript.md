@@ -1,3 +1,7 @@
+```html 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +11,6 @@
 <style>
 body {
   margin: 0;
-  background: #e9e9ef;
   font-family: Arial, sans-serif;
 }
 
@@ -20,31 +23,25 @@ body {
   margin-bottom: 0;
 }
 
-/* track (parent) */
+/* track */
 .bar-track {
   width: 100%;
   height: 100%;
-  background: #F2EAEF;
   position: relative;
-  box-shadow: 0px 4px 8px 0px #F5DAEA inset;
 }
 
 /* bar */
 .bar {
-  height: 100%;
-  background: #921F65;
-  position: relative;
+  height: 65px !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 10px;
+  padding: 10px;
   box-sizing: border-box;
   transition: width 0.6s ease;
   overflow: hidden;
   min-width: fit-content;
-  box-shadow: 0px 4px 8px 0px #C6489599 inset;
   flex-wrap: wrap;
-  height: 65px !important;
 }
 
 /* label */
@@ -60,11 +57,10 @@ body {
 
 /* value */
 .value {
-  color: #FFFFFFE5;
+  color: #fff;
   font-weight: 700;
   font-size: 23px;
   flex-shrink: 0;
-  font-family: 'Instrument Sans';
 }
 </style>
 </head>
@@ -75,7 +71,15 @@ body {
 <div class="container" id="barchart2"></div>
 
 <script>
-function createBarChart(containerId, labels, values) {
+function createBarChart(
+  containerId,
+  labels,
+  values,
+  barColor,
+  trackColor,
+  barShadow,
+  trackShadow
+) {
   const container = document.getElementById(containerId);
   const items = [];
 
@@ -85,9 +89,13 @@ function createBarChart(containerId, labels, values) {
 
     const track = document.createElement("div");
     track.className = "bar-track";
+    track.style.background = trackColor;
+    track.style.boxShadow = trackShadow;
 
     const bar = document.createElement("div");
     bar.className = "bar";
+    bar.style.background = barColor;
+    bar.style.boxShadow = barShadow;
 
     const labelBox = document.createElement("div");
     labelBox.className = "label-box";
@@ -136,16 +144,29 @@ function createBarChart(containerId, labels, values) {
   setTimeout(updateLayout, 100);
 }
 
-/* CHART DATA */
-const labels1 = [
+/* DATA */
+const labels = [
   "Much more prepared",
   "More prepared",
   "About the same",
   "Less prepared"
 ];
 
-const values1 = [16.09, 22.99, 31.09, 26.09];
+const values = [16.09, 22.99, 31.09, 26.09];
 
+/* CHART 1 */
+createBarChart(
+  "barchart",
+  labels,
+  values,
+  "#921F65",
+  "#F2EAEF",
+  "0px 4px 8px 0px #C6489599 inset",
+  "0px 4px 8px 0px #F5DAEA inset"
+);
+
+
+/* DATA 2 */
 const labels2 = [
   "Much more prepared",
   "More prepared",
@@ -153,11 +174,18 @@ const labels2 = [
   "Less prepared"
 ];
 
-const values2 = [16.09, 22.99, 31.09, 26.09];
+const values2 = [16.09, 22.99, 31.09, 18.09];
 
-/* INIT CHARTS */
-createBarChart("barchart", labels1, values1);
-createBarChart("barchart2", labels2, values2);
+/* CHART 2 */
+createBarChart(
+  "barchart2",
+  labels2,
+  values2,
+  "#8976FF",  // bar color
+  "#EAE7FF",  // track background
+  "0px 4px 8px 0px #DBD6FFB2 inset", // bar shadow
+  "0px 4px 8px 0px #DDD8FFB2 inset"     // track shadow (or your choice)
+);
 
 </script>
 
