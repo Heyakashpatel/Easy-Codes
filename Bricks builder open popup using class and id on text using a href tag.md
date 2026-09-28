@@ -1,3 +1,4 @@
+``` Js
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.popup-link').forEach((el) => {
     el.addEventListener('click', (e) => {
@@ -7,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+```
 
 
-
-// add class on a href tag and use popup id add both in javascript 
+# add class on a href tag and use popup id add both in javascript 
